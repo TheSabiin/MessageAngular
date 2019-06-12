@@ -1,0 +1,21 @@
+<div class="container">
+	<form #messageForm= "ngForm"(submit)="messageForm.resetForm()" >
+		<div class="form-group">
+		<h1 class="text-center ">Messenger</h1>
+		<div>
+				<input type="text-area" #txt_title  class="form-control" placeholder="Title:" name="title" ngModel>
+		</div>
+			<div class="input-group-prepend">
+			    <input type="text-area" #txt_message  class="form-control" placeholder="Message:" name="message" ngModel>
+				<span class="input-group-text" (click)="sendMessage(txt_title.value, txt_message.value)">
+				<i class="material-icons">send</i></span>
+			</div>
+		</div>
+		<div class="data">
+		<ul class="list-unstyled">
+			<li [@moveInLeft]  *ngFor="let message of messages">{{message.title}}: {{message.body.text}}</li>
+		</ul>
+	</div>
+	</form>
+	
+</div>
